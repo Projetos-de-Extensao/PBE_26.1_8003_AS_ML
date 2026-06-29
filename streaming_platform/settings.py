@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'STREAMING',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -119,13 +120,17 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# Add additional third-party and local apps to the existing INSTALLED_APPS
-INSTALLED_APPS += [
-    'rest_framework',
-    'content_app',
-
-]
-
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
+
+
+SPECTACULAR_SETTINGS = {
+     'TITLE': 'FitLife API',
+     'DESCRIPTION': 'API para monitoramento de treinos e progresso',
+     'VERSION': '1.0.0',
+     'SERVE_INCLUDE_SCHEMA': False,
+     'SWAGGER_UI_DIST': 'SIDECAR',  
+     'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
+     'REDOC_DIST': 'SIDECAR',
+    }
