@@ -29,36 +29,24 @@ left to right direction
 
 actor "Usuário" as Usuario
 actor "Administrador" as Admin
-actor "Gateway de Pagamento" as Pagamento
 
-rectangle "App de Streaming" {
-	usecase "Cadastrar conta" as UC1
-	usecase "Fazer login" as UC2
-	usecase "Gerenciar perfil" as UC3
-	usecase "Buscar conteúdo" as UC4
-	usecase "Reproduzir conteúdo" as UC5
-	usecase "Adicionar à lista" as UC6
-	usecase "Assinar plano" as UC7
-	usecase "Processar pagamento" as UC8
-	usecase "Cancelar assinatura" as UC9
-	usecase "Gerenciar catálogo" as UC10
-	usecase "Gerar relatórios" as UC11
+
+rectangle "FitLife - Plataforma de Treinos" {
+    usecase "Manter Plano de Treino" as UC1
+    usecase "Registrar Execução de Treino" as UC2
+    usecase "Calcular Métricas de Progresso" as UC3
+    usecase "Visualizar Dashboard de Evolução" as UC4
+    usecase "Gerenciar Catálogo de Exercícios" as UC5
 }
 
 Usuario --> UC1
 Usuario --> UC2
-Usuario --> UC3
 Usuario --> UC4
-Usuario --> UC5
-Usuario --> UC6
-Usuario --> UC7
-Usuario --> UC9
 
-UC7 .> UC8 : <<include>>
-Pagamento --> UC8
+UC2 ..> UC3 : <<include>>
 
-Admin --> UC10
-Admin --> UC11
+Admin --> UC1
+Admin --> UC5
 
 @enduml
 ```
